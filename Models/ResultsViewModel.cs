@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SwapiMVC.Models
 {
-    public class ResultsViewModel
+    public class ResultsViewModel<TResult>
     {
         [JsonPropertyName("count")]
         public int Count { get; set; }
@@ -16,10 +16,8 @@ namespace SwapiMVC.Models
         public string Previous { get; set; }
         public string NextPageNum => Next?.Split("?page=").LastOrDefault();
         public string PreviousPageNum => Previous?.Split("?page=").LastOrDefault();
-    }
-    public class ResultsViewModel<TResult>
-    { 
         [JsonPropertyName("results")]
         public IEnumerable<TResult> Results { get; set; }
     }
+    
 }
